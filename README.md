@@ -1,27 +1,31 @@
-# 🚦 GestorMultasCTB - Miniframework
+# GestorMultasCTB 
 
-Este projeto representa a **Parte 2 (Prática)** da atividade sobre Frameworks de Desenvolvimento de Software. O objetivo é demonstrar a compreensão sobre a criação, utilidade e aplicação de frameworks no desenvolvimento moderno, focando em produtividade, organização e reutilização de código.
+Repositório referente à Parte 2 (Prática) do trabalho de Frameworks de Desenvolvimento de Software. O objetivo aqui é aplicar na prática os conceitos de criação de frameworks, focando em reutilização e organização de código.
 
-## 👥 Equipe Desenvolvedora
-- **João Felipe da Costa** – R.A 60002975
-- **Gabriel Francisco Gelde** – R.A 60000307
-- **Guilherme Bau da Silva** – R.A 60001565
+## Equipe
+- João Felipe da Costa – R.A 60002975
+- Gabriel Francisco Gelde – R.A 60000307
+- Guilherme Bau da Silva – R.A 60001565
 
 ---
 
-## 🎯 Qual problema o miniframework resolve?
-Ele foi pensado para resolver um problema real de empresas de logística (inspirado na rotina da Ghelere Transportes). Desenvolvedores perdem muito tempo programando regras complexas e repetitivas sobre pontuação, custos de multas e risco de suspensão de CNH baseadas no Código de Trânsito Brasileiro (CTB). O framework abstrai toda essa matemática e legislação.
+## O problema que resolvemos
+A ideia do projeto surgiu de um cenário real da Ghelere Transportes. Notamos que desenvolver sistemas de gestão de frota exige programar repetidas vezes as mesmas regras do Código de Trânsito Brasileiro (CTB) — como somar valores de multas e calcular o risco de suspensão da CNH baseado na gravidade. 
 
-## 🚀 Funcionalidades (O que ele faz)
-O miniframework foi construído de forma modular em JavaScript (Node.js) e possui 3 funcionalidades principais:
-1. **`calcularCustoTotal(multas)`**: Recebe um array de infrações e calcula o valor financeiro total com base na gravidade atualizada da lei.
-2. **`verificarRiscoSuspensao(pontosAtuais, qtdGravissimas)`**: Verifica se a CNH corre risco de suspensão aplicando os limites corretos (20, 30 ou 40 pontos).
-3. **`formatarMoeda(valor)`**: Padroniza a exibição de valores para o formato Real Brasileiro (R$).
+O nosso miniframework centraliza toda essa regra de negócio em um lugar só, evitando repetição de código.
 
-## 💻 Como utilizar na prática
-O framework (`GestorMultasCTB.js`) é totalmente independente e pode ser importado em qualquer projeto JS. 
+## O que o framework faz (Funcionalidades)
+O código principal foi feito em JavaScript puro (Node.js) e exporta 3 métodos principais:
 
-**Exemplo de Importação:**
+1. **`calcularCustoTotal(multas)`**: Recebe uma lista de infrações e devolve o valor total a ser pago.
+2. **`verificarRiscoSuspensao(pontosAtuais, qtdGravissimas)`**: Aplica a regra atual do CTB (limites de 20, 30 ou 40 pontos) para avisar se a CNH corre risco de suspensão.
+3. **`formatarMoeda(valor)`**: Utilitário para formatar o valor final para o padrão de moeda brasileiro (R$).
+
+## Como rodar e testar
+O framework (`GestorMultasCTB.js`) é independente e pode ser usado em qualquer projeto JS. Para o trabalho, criamos uma telinha em React para demonstrar o uso na prática.
+
+**Exemplo prático de como importar no seu código:**
 ```javascript
 import GestorMultasCTB from './GestorMultasCTB.js';
+
 const gestorDeMultas = new GestorMultasCTB();
